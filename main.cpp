@@ -34,11 +34,41 @@ void processFile(char *filename) {
         istringstream iss(nextLine);
         string stuff;
 
-        vector<string>strArr;
+        vector<string> tokens;
 
         while (iss >> stuff) {
-            strArr.push_back(stuff);
-            cout<<stuff<<"|";
+            tokens.push_back(stuff);
+            //cout<<stuff<<"|";
+        }
+
+        for (int i = 0; i < tokens.size(); i++) {
+            int len = tokens[i].length();//length of curr string
+            if(tokens[i][len-1]==','){
+                tokens[i]=tokens[i].substr(0,len-1);
+            }
+        }
+
+        /*
+        int i=0;
+        while(i<tokens.size()){
+            cout<<tokens[i]<<" ";
+            i++;
+        }
+         */
+        string command = tokens[0];
+
+        if (strcmp(command.c_str(), "ADD") == 0) {
+            string last = tokens[1];
+            string first = tokens[2];
+            string title;
+            int i = 3;
+            while(i<tokens.size()-1){
+                title+=tokens[i]+" ";
+                i++;
+            }
+            title+=tokens[tokens.size()-1];
+
+            cout<<last+" "+first+" "+title<<endl;
         }
 
         cout << endl;

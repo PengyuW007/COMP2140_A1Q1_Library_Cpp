@@ -1,5 +1,11 @@
-//
-// Created by Lenovo on 2022-01-01.
-//
-
 #include "Book.h"
+
+Book::Book() {
+
+}
+
+Book::Book(string t, string f, string l) {
+    title = t;
+    first = f;
+    last = l;
+}
