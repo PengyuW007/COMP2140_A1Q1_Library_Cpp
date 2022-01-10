@@ -68,9 +68,9 @@ void processFile(char *filename) {
             }
             title+=tokens[tokens.size()-1];
 
-            cout<<last+" "+first+" "+title<<endl;
+            //cout<<last+" "+first+" "+title<<endl;
         }
 
-        cout << endl;
+        //cout << endl;
     }
 }

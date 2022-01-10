@@ -21,11 +21,8 @@ public:
     string getTitle();
 
     string getLast();
-
     string getFirst();
-
     void setLoan(bool loanStatus);
-
     bool getLoan();
 };
 
