@@ -35,26 +35,16 @@ void processFile(char *filename) {
         string stuff;
 
         vector<string> tokens;
-
         while (iss >> stuff) {
             tokens.push_back(stuff);
-            //cout<<stuff<<"|";
         }
 
         for (int i = 0; i < tokens.size(); i++) {
             int len = tokens[i].length();//length of curr string
-            if(tokens[i][len-1]==','){
-                tokens[i]=tokens[i].substr(0,len-1);
+            if (tokens[i][len - 1] == ',') {
+                tokens[i] = tokens[i].substr(0, len - 1);
             }
         }
-
-        /*
-        int i=0;
-        while(i<tokens.size()){
-            cout<<tokens[i]<<" ";
-            i++;
-        }
-         */
         string command = tokens[0];
 
         if (strcmp(command.c_str(), "ADD") == 0) {
@@ -62,15 +52,26 @@ void processFile(char *filename) {
             string first = tokens[2];
             string title;
             int i = 3;
-            while(i<tokens.size()-1){
-                title+=tokens[i]+" ";
+            while (i < tokens.size() - 1) {
+                title += tokens[i] + " ";
                 i++;
             }
-            title+=tokens[tokens.size()-1];
+            title += tokens[tokens.size() - 1];
 
-            //cout<<last+" "+first+" "+title<<endl;
+            library->addBook(last, first, title);
+        }//end ADD
+        else if (strcmp(command.c_str(), "SEARCHA") == 0) {
+            string last = tokens[1];
+
+            library->listByAuthor(last);
+        }//end SEARCHA
+        else if(strcmp(command.c_str(),"GETBOOK")){
+            string last = tokens[1];
+            string title = tokens[2];
+
+            library->returnBook(last,title);
         }
-
-        //cout << endl;
     }
+    //library->printLibrary();
+    // cout<<library->getNumBooks()<<endl;
 }

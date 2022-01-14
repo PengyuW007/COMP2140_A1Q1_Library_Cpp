@@ -33,6 +33,8 @@ public:
     bool returnBook(string last, string title);
 
     string getBook(string, string);
+
+    void printLibrary();
 };
 
 #endif //A1Q1_LIBRARY_H

@@ -1,6 +1,7 @@
 #ifndef A1Q1_BOOK_H
 #define A1Q1_BOOK_H
 
+#include <iostream>
 #include <string>
 #include <cstring>
 

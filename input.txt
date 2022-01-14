@@ -8,7 +8,7 @@ SEARCHA Atwood
 GETBOOK Martel, Life of Pi
 ADD Shields, Carol, The Stone Diaries
 ADD Mistry, Rohinton, A Fine Balance
-ADD Fitzgerald, ,The Great Gatsby
+ADD Fitzgerald, , The Great Gatsby
 GETBOOK Shields, The Stone Diaries
 ADD Margaret, Atwood, Alias Grace
 SEARCHT Alias Grace
