@@ -69,7 +69,14 @@ void processFile(char *filename) {
             string last = tokens[1];
             string title = tokens[2];
 
-            library->returnBook(last,title);
+            library->loanBook(last,title);
+            cout<<endl;
+        }//end GETBOOK
+        else if(strcmp(command.c_str(),"RETURNBOOK")){
+            string last = tokens[1];
+            string title = tokens[2];
+
+            //library->returnBook(last,title);
         }
     }
     //library->printLibrary();

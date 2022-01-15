@@ -52,18 +52,51 @@ vector<Book> Library::listByTitle(string title) {
 bool Library::loanBook(string last, string title) {
     cout << "Book loaned: ";
     bool loaned = true;//in lib
-
+    cout << books.size() << endl;
     for (int i = 0; i < getNumBooks(); i++) {
         Book book = books[i];
+        if(strcmp(book.getLast().c_str(), last.c_str()) == 0){
+            cout<<"Yes"<<endl;
+            string line = getBook(last,title);
+            cout<<line<<endl;
+        }
 
-        if (strcmp(book.getLast().c_str(), last.c_str()) == 0 && strcmp(book.getTitle().c_str(), title.c_str())==0){
+        /*
+        if (strcmp(book.getLast().c_str(), last.c_str()) == 0 && strcmp(book.getTitle().c_str(), title.c_str()) == 0) {
             loaned = false;
             book.setLoan(true);
-            string line = getBook(last,title);
-            
+            string line = getBook(last, title);
+            cout << line << endl;
+            books.erase(books.begin() + i);
+            rent.push_back(book);
         }
+         */
     }
+    cout<<books.size()<<endl;
+    return loaned;
 }//end loanBook
+
+bool Library::returnBook(string last, string title) {
+    cout << "Book returned: " << endl;
+
+    bool returned = false;
+   // cout<<"RETURN: "<<rent.size()<<endl;
+    for (int i = 0; i < rent.size(); i++) {
+        Book book = rent[i];
+
+        /*
+        if (strcmp(book.getLast().c_str(), last.c_str()) == 0 && strcmp(book.getTitle().c_str(), title.c_str()) == 0) {
+            returned = true;
+            book.setLoan(false);
+            books.push_back(book);
+            string line = getBook(last, title);
+            cout << line << endl;
+            rent.erase(rent.begin() + i);
+        }
+         */
+    }
+    return returned;
+}
 
 string Library::getBook(string last, string title) {
     string res = "";
